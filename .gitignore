@@ -1,2 +1,7 @@
 node_modules/
 .DS_Store
+
+# Angular build output and cache
+/dist
+/.angular/cache
+*.tsbuildinfo
