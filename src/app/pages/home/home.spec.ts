@@ -12,4 +12,11 @@ describe('Home', () => {
     const fixture = TestBed.createComponent(Home);
     expect(fixture.componentInstance).toBeTruthy();
   });
+
+  it('should render the Super Good heading', () => {
+    const fixture = TestBed.createComponent(Home);
+    fixture.detectChanges();
+    const heading = fixture.nativeElement.querySelector('h1');
+    expect(heading?.textContent).toContain('Super Good');
+  });
 });
