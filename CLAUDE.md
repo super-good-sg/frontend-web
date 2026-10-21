@@ -7,14 +7,15 @@ Super Good web frontend.
 - The spec, contract or ADR linked from your Linear ticket (project SuperGood). Linear is the source of truth for work.
 
 ## Commands
-- Build: TODO (set when the project is scaffolded, SIE-61)
-- Test: TODO
-- Lint: TODO
+- Build: `npm run build`
+- Test: `npm run test -- --watch=false`
+- Lint: `npm run lint`
 
 ## Folder map
 - `openspec/`: OpenSpec specs and changes (`openspec/changes/`, `openspec/specs/`).
 - `.claude/`, `.agents/`: agent skills and commands (OpenSpec-managed).
-- Source folders: TODO (added by SIE-61).
+- `src/app/`: Angular app. Routing in `app.routes.ts`, pages under `pages/`. Shared state: injectable services holding signals, no state library (see `openspec/changes/`).
+- `public/`: static assets served as-is.
 
 ## Where things live
 Specs, ADRs and contracts (OpenAPI, order schema) all live in [document-specs](https://github.com/super-good-sg/document-specs). See the [standard](https://github.com/super-good-sg/document-specs/blob/main/docs/claude-md-standard.md#where-things-live-all-in-document-specs) for paths.
