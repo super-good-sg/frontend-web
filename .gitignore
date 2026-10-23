@@ -5,3 +5,7 @@ node_modules/
 /dist
 /.angular/cache
 *.tsbuildinfo
+
+# Playwright
+/test-results/
+/playwright-report/
