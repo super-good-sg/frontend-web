@@ -9,3 +9,5 @@ node_modules/
 # Playwright
 /test-results/
 /playwright-report/
+# SIE-100: fetched fresh from document-specs each run, not vendored here
+/e2e/*-snapshots/
