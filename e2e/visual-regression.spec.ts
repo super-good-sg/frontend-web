@@ -13,9 +13,14 @@ for (const screen of SCREENS) {
 
     if (!existsSync(snapshotPath)) {
       const response = await fetch(`${REFERENCE_BASE_URL}/${snapshotName}`);
-      if (!response.ok) {
+      if (response.status === 404) {
         test.skip(true, `No reference image exported yet for "${screen.name}" (${screen.frameId})`);
         return;
+      }
+      if (!response.ok) {
+        throw new Error(
+          `Fetching the reference image for "${screen.name}" (${screen.frameId}) failed: ${response.status} ${response.statusText}`,
+        );
       }
       mkdirSync(dirname(snapshotPath), { recursive: true });
       writeFileSync(snapshotPath, Buffer.from(await response.arrayBuffer()));
