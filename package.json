@@ -15,7 +15,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "test:commitlint": "node --test commitlint/*.test.js"
+    "test:commitlint": "node --test commitlint/*.test.js",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@angular/common": "^22.2.0",
@@ -33,6 +34,7 @@
     "@angular/compiler-cli": "^22.2.0",
     "@commitlint/config-conventional": "^21.2.3",
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.64.1",
     "angular-eslint": "22.6.0",
     "commitlint": "^21.2.3",
     "eslint": "^10.12.0",
