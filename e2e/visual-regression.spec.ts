@@ -6,6 +6,12 @@ import { SCREENS } from './visual-refs.config';
 const REFERENCE_BASE_URL =
   'https://raw.githubusercontent.com/super-good-sg/document-specs/main/docs/design/visual-refs';
 
+const duplicateFrameId = SCREENS.map((s) => s.frameId).find((id, i, ids) => ids.indexOf(id) !== i);
+if (duplicateFrameId) {
+  // Two entries writing the same snapshot path would race under parallel workers.
+  throw new Error(`Duplicate frameId "${duplicateFrameId}" in visual-refs.config.ts`);
+}
+
 for (const screen of SCREENS) {
   test(`visual: ${screen.name}`, async ({ page }) => {
     const snapshotName = `${screen.frameId}.png`;
